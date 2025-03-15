@@ -1,71 +1,114 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Logo from "./HeaderComponent/Logo";
+import SearchBox from "./HeaderComponent/SearchBox";
+import { ChartPie, Search, Sparkle, Tally4 } from "lucide-react";
+import { CircleUser, EllipsisVertical, LogOut, Plus } from "lucide-react";
+import ProfileImage from "./HeaderComponent/ProfileImage";
+import BorderMagic from "./AnimatedButtons/BorderMagic";
+import Shimmer from "./AnimatedButtons/ShimmerBtn";
 
 const Header = () => {
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
+  const [accountOpen, setAccountOpen] = useState<boolean>(false);
+
+  const setAccountMenu = () => {
+    setMenuOpen(false);
+    setAccountOpen((prev) => !prev);
+  };
+
+  const setMenu = () => {
+    setAccountOpen(false);
+    setMenuOpen((prev) => !prev);
+  };
   return (
-    <header className="bg-white">
-      <div className="mx-auto flex h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8">
+    <header className="w-full px-2 md:p-0">
+      <div className="mx-auto flex h-16  items-center justify-between gap-8 sm:px-6 lg:px-8">
         {/* Logo + nav */}
         <div className=" flex items-center justify-center gap-6">
           <Logo />
-          <nav aria-label="Global" className="hidden md:block">
-            <ul className="flex items-center gap-6 text-sm">
+          <nav className=" hidden md:block">
+            <ul className="flex items-center gap-7 lg:text-md md:text-sm font-bold">
               <li>
-                <p className="text-gray-500 transition hover:text-gray-500/75">
+                <p className="text-gray-400 transition hover:text-gray-400/75">
                   {" "}
-                  About{" "}
+                  Market
                 </p>
               </li>
 
               <li>
-                <p className="text-gray-500 transition hover:text-gray-500/75">
+                <p className="text-gray-400 transition hover:text-gray-400/75">
                   {" "}
-                  Careers{" "}
+                  Trade
                 </p>
               </li>
 
               <li>
-                <p className="text-gray-500 transition hover:text-gray-500/75">
+                <p className="text-gray-400 transition hover:text-gray-400/75">
                   {" "}
-                  History{" "}
+                  Lend
                 </p>
               </li>
             </ul>
           </nav>
         </div>
         {/* search  */}
+        <div className=" block md:hidden lg:block">
+          <SearchBox />
+        </div>
         {/* Actions, portfolio and others */}
-        <div className="flex flex-1 items-center justify-end md:justify-between">
+        <div className="flex items-center justify-end md:justify-between">
           <div className="flex items-center gap-4">
-            <div className="sm:flex sm:gap-4">
-              <p className="block rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700">
-                Login
-              </p>
-
-              <p className="hidden rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600 transition hover:text-teal-600/75 sm:block">
-                Register
-              </p>
+            <div className=" hidden md:flex md:gap-3 mr-5 ">
+              {/* <BorderMagic text="Deposit" textColor="text-teal-400" />
+              <BorderMagic text="Withdraw" textColor="text-blue-400" /> */}
+              <Shimmer text="login" textColor="text-teal-400" />
+              <Shimmer text="sign-up" textColor="text-blue-400" />
             </div>
 
-            <button className="block rounded-sm bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden">
-              <span className="sr-only">Toggle menu</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="size-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-            </button>
+            <ul className=" hidden md:flex md:items-center md:gap-7 text-md font-bold">
+              {/* Search Icon (Visible only on Tablet) */}
+              <li className="lg:hidden">
+                <p className="text-gray-400 transition hover:text-gray-400/75">
+                  <Search size={20} />
+                </p>
+              </li>
+              <li>
+                <p className="text-gray-400 transition hover:text-gray-400/75">
+                  {" "}
+                  <ChartPie size={20} />
+                </p>
+              </li>
+
+              <li>
+                <p className="text-gray-400 transition hover:text-gray-400/75">
+                  {" "}
+                  <Sparkle size={20} />
+                </p>
+              </li>
+
+              <li>
+                <p className="text-gray-400 transition hover:text-gray-400/75">
+                  {" "}
+                  <span onClick={setAccountMenu}>
+                    <ProfileImage />
+                  </span>
+                </p>
+              </li>
+            </ul>
+
+            <div className="md:hidden flex items-center gap-4">
+              <span onClick={setAccountMenu}>
+                <ProfileImage />
+              </span>
+              <button className="text-white" onClick={setMenu}>
+                <Tally4 size={21} />
+              </button>
+            </div>
           </div>
+
+          <MobileMenu isOpen={menuOpen} />
+          <AccountPopover isOpen={accountOpen} />
         </div>
       </div>
     </header>
@@ -73,3 +116,91 @@ const Header = () => {
 };
 
 export default Header;
+
+const MobileMenu = ({ isOpen }: { isOpen: boolean }) => {
+  return (
+    <div
+      className={` absolute right-0 top-16 w-60 bg-[#0E0F14] text-white border rounded-lg transition-all duration-300 ease-in-out z-50 ${
+        isOpen ? "block" : "hidden"
+      }`}
+    >
+      <ul className="flex flex-col items-center gap-4 p-5 text-lg font-bold">
+        <li className="hover:text-gray-300 ">Market</li>
+        <li className="hover:text-gray-300 ">Trade</li>
+        <li className="hover:text-gray-300 ">Lend</li>
+        <li className="hover:text-gray-300 ">Profile</li>
+        <li className="hover:text-gray-300 ">Rewards</li>
+      </ul>
+      <div className="flex justify-center gap-8 py-5">
+        <BorderMagic text="Deposit" textColor="text-teal-400" />
+        <BorderMagic text="Withdraw" textColor="text-blue-400" />
+        {/* <Shimmer text="Login" textColor="text-teal-400" />
+        <Shimmer text="Sign-up" textColor="text-blue-400" /> */}
+      </div>
+    </div>
+  );
+};
+
+const AccountPopover = ({ isOpen }: { isOpen: boolean }) => {
+  return (
+    <div
+      className={` absolute right-2 top-16 text-slate-400 er rounded-lg transition-all duration-300 ease-in-out z-50 ${
+        isOpen ? "block" : "hidden"
+      }`}
+    >
+      <div
+        className="z-20 ml-2 mt-2 flex w-[300px] flex-col overflow-x-hidden rounded-md bg-[#14151B] px-2 text-baseTextHighEmphasis shadow-lg shadow-black transition data-[closed]:-translate-y-6 data-[closed]:translate-x-4 data-[closed]:scale-90 data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75"
+        tabIndex={-1}
+      >
+        {/* Profile Section */}
+        <p className="mb-2 mt-2 flex rounded-lg px-3 py-2 hover:bg-[#202127]">
+          <CircleUser className="my-auto shrink-0 text-baseIcon" size={20} />
+          <div className="ml-4 overflow-hidden">
+            <p className="truncate text-white">Tamal Chakraborty</p>
+            <p className="truncate text-sm text-baseTextMedEmphasis">
+              ckbtamaldipnew@gmail.com
+            </p>
+          </div>
+        </p>
+        {/* Accounts Section */}
+        <div className="flex flex-col w-full gap-1 border-t  border-t-slate-800 pt-2">
+          <p className="font-medium mb-2 px-3 pt-2 text-xs uppercase">
+            Accounts
+          </p>
+          <div className="flex items-center justify-between flex-row flex-1 rounded-lg px-3 py-2 hover:cursor-pointer bg-[#202127]">
+            <div className="flex items-center">
+              <div className="mr-[10px] flex flex-col justify-center">
+                <ProfileImage />
+              </div>
+              <p className="text-sm font-normal text-white">Main</p>
+            </div>
+            <EllipsisVertical
+              className="text-baseIcon hover:text-baseIconHover"
+              size={24}
+            />
+          </div>
+        </div>
+        {/* Add Subaccount */}
+        <div className="mx-auto mb-2 mt-1 flex w-full">
+          <button className="w-full">
+            <div className="flex items-center justify-between flex-row flex-1 rounded-lg px-3 hover:cursor-pointer hover:bg-[#202127] py-2 ">
+              <div className="flex items-center">
+                <Plus className="mr-[10px] text-baseIcon" size={24} />
+                <p className="text-sm font-normal">Add Subaccount</p>
+              </div>
+            </div>
+          </button>
+        </div>
+        {/* Logout Section */}
+        <div className="border-t  border-t-slate-800 py-2">
+          <p className="flex justify-between rounded-lg px-3 py-2 hover:bg-[#202127]">
+            <span className="my-auto flex">
+              <LogOut className="size-5 text-baseIcon" />
+              <span className="ml-[10px] text-sm text-white">Log out</span>
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};

@@ -5,10 +5,10 @@ const Logo = () => {
   const router = useRouter();
   return (
     <h1
-      className="flex items-center justify-center cursor-pointer"
+      className="flex items-center justify-center cursor-pointer mr-3"
       onClick={() => router.push("/")}
     >
-      <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#94e204] via-[#ee9d24] to-[#f50404]">
+      <span className="lg:text-2xl md:text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#ffffff] via-[#d9d9d9] to-[#bfbfbf]">
         Cointrade
       </span>
       <div className="ml-auto flex items-center gap-4"></div>
