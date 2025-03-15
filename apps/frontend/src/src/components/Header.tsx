@@ -153,7 +153,7 @@ const AccountPopover = ({ isOpen }: { isOpen: boolean }) => {
         tabIndex={-1}
       >
         {/* Profile Section */}
-        <p className="mb-2 mt-2 flex rounded-lg px-3 py-2 hover:bg-[#202127]">
+        <div className="mb-2 mt-2 flex rounded-lg px-3 py-2 hover:bg-[#202127]">
           <CircleUser className="my-auto shrink-0 text-baseIcon" size={20} />
           <div className="ml-4 overflow-hidden">
             <p className="truncate text-white">Tamal Chakraborty</p>
@@ -161,7 +161,7 @@ const AccountPopover = ({ isOpen }: { isOpen: boolean }) => {
               ckbtamaldipnew@gmail.com
             </p>
           </div>
-        </p>
+        </div>
         {/* Accounts Section */}
         <div className="flex flex-col w-full gap-1 border-t  border-t-slate-800 pt-2">
           <p className="font-medium mb-2 px-3 pt-2 text-xs uppercase">
@@ -193,12 +193,12 @@ const AccountPopover = ({ isOpen }: { isOpen: boolean }) => {
         </div>
         {/* Logout Section */}
         <div className="border-t  border-t-slate-800 py-2">
-          <p className="flex justify-between rounded-lg px-3 py-2 hover:bg-[#202127]">
+          <div className="flex justify-between rounded-lg px-3 py-2 hover:bg-[#202127]">
             <span className="my-auto flex">
               <LogOut className="size-5 text-baseIcon" />
               <span className="ml-[10px] text-sm text-white">Log out</span>
             </span>
-          </p>
+          </div>
         </div>
       </div>
     </div>
