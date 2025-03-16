@@ -199,119 +199,123 @@ const coinData = [
 
 const DataTable = () => {
   return (
-    <div className="flex flex-col w-[1160px] gap-3 rounded-xl bg-[#14151B] p-4 text-white">
-      {/*//? Tab  */}
-      <div className="flex flex-row">
-        <div className="items-center justify-center flex-row flex space-x-2">
-          <div className="flex justify-center flex-col cursor-pointer rounded-lg py-1 text-sm font-medium outline-none hover:opacity-90 h-[32px] text-[#9695AF] px-3">
-            Spot
-          </div>
-          <div className="flex justify-center flex-col cursor-pointer rounded-lg py-1 text-sm font-medium outline-none hover:opacity-90 h-[32px] text-[#9695AF] px-3 bg-[#202127]">
-            Futures
-          </div>
-          <div className="flex justify-center flex-col cursor-pointer rounded-lg py-1 text-sm font-medium outline-none hover:opacity-90 h-[32px] text-[#9695AF] px-3">
-            Lending
-          </div>
-          <div className="flex justify-center flex-col cursor-pointer rounded-lg py-1 text-sm font-medium outline-none hover:opacity-90 h-[32px] text-[#9695AF] px-3">
-            Favorites
+    <div className=" w-full max-w-[1160px] overflow-x-auto">
+      <div className="flex flex-col min-w-[1160px] gap-3 rounded-xl bg-[#14151B] p-4 text-white">
+        {/*//? Tab  */}
+        <div className="flex flex-row">
+          <div className="items-center justify-center flex-row flex space-x-2">
+            <div className="flex justify-center flex-col cursor-pointer rounded-lg py-1 text-sm font-medium outline-none hover:opacity-90 h-[32px] text-[#9695AF] px-3">
+              Spot
+            </div>
+            <div className="flex justify-center flex-col cursor-pointer rounded-lg py-1 text-sm font-medium outline-none hover:opacity-90 h-[32px] text-[#9695AF] px-3 bg-[#202127]">
+              Futures
+            </div>
+            <div className="flex justify-center flex-col cursor-pointer rounded-lg py-1 text-sm font-medium outline-none hover:opacity-90 h-[32px] text-[#9695AF] px-3">
+              Lending
+            </div>
+            <div className="flex justify-center flex-col cursor-pointer rounded-lg py-1 text-sm font-medium outline-none hover:opacity-90 h-[32px] text-[#9695AF] px-3">
+              Favorites
+            </div>
           </div>
         </div>
-      </div>
-
-      {/* //? Table  */}
-      <div className="overflow-x-auto">
-        <table className=" w-full">
-          <thead>
-            <tr>
-              <th className="border-b border-[#202127] px-1 py-3 text-sm font-normal text-[#9695AF]  first:pl-2 last:pr-6">
-                <div className="flex flex-row items-center px-1 first:pl-0 cursor-pointer select-none justify-start text-left">
-                  Name
-                </div>
-              </th>
-              <th className="border-b border-[#202127] w-[17%] px-1 py-3 text-sm font-normal text-[#9695AF]  first:pl-2 last:pr-6">
-                <div className="flex flex-row items-center px-1 first:pl-0 cursor-pointer select-none justify-end text-right">
-                  Price
-                </div>
-              </th>
-              <th className="border-b border-[#202127] w-[17%] px-1 py-3 text-sm font-normal text-[#9695AF]  first:pl-2 last:pr-6">
-                <div className="flex flex-row items-center px-1 first:pl-0 cursor-pointer select-none justify-end text-right">
-                  Open Interest
-                </div>
-              </th>
-              <th className="border-b border-[#202127] w-[17%] px-1 py-3 text-sm font-normal text-[#9695AF]  first:pl-2 last:pr-6">
-                <div className="flex flex-row items-center px-1 first:pl-0 cursor-pointer select-none justify-end text-right">
-                  24h Volume
-                </div>
-              </th>
-              <th className="border-b border-[#202127] w-[17%] px-1 py-3 text-sm font-normal text-[#9695AF]  first:pl-2 last:pr-6">
-                <div className="flex flex-row items-center px-1 first:pl-0 cursor-pointer select-none justify-end text-right">
-                  24h Change
-                </div>
-              </th>
-              <th className="border-b border-[#202127] w-[17%] px-1 py-3 text-sm font-normal text-[#9695AF]  first:pl-2 last:pr-6">
-                <div className="flex flex-row items-center px-1 first:pl-0 cursor-pointer select-none justify-end text-right">
-                  <ArrowDown size={18} />
-                  <span className=" ml-2">Last 7 Days</span>
-                </div>
-              </th>
-            </tr>
-          </thead>
-
-          <tbody className="gap-2 divide-y divide-[#202127]">
-            {coinData.map((coin, index) => (
-              <tr className="hover:bg-[#202127] cursor-pointer" key={index}>
-                <td className="text-sm tabular-nums px-2 py-3 last:pr-7">
-                  <div className="flex items-center">
-                    <div
-                      className="relative flex-none overflow-hidden rounded-full border border-gray-300"
-                      style={{ width: 40, height: 40 }}
-                    >
-                      <Image
-                        src={coin.logo}
-                        alt="SOL Logo"
-                        width={40}
-                        height={40}
-                        priority
-                      />
-                    </div>
-                    <div className="ml-2 flex flex-col">
-                      <span className="font-medium text-base">{coin.name}</span>
-                    </div>
+        {/* //? Table  */}
+        <div className="overflow-x-auto">
+          <table className=" w-full">
+            <thead>
+              <tr>
+                <th className="border-b border-[#202127] px-1 py-3 text-sm font-normal text-[#9695AF]  first:pl-2 last:pr-6">
+                  <div className="flex flex-row items-center px-1 first:pl-0 cursor-pointer select-none justify-start text-left">
+                    Name
                   </div>
-                </td>
-                <td className="text-sm tabular-nums px-2 py-3 last:pr-7 text-right">
-                  <p className="text-base font-medium">{coin.price}</p>
-                </td>
-                <td className="text-sm tabular-nums px-2 py-3 last:pr-7 text-right">
-                  <p className="text-base font-medium">{coin.openInterest}</p>
-                </td>
-                <td className="text-sm tabular-nums px-2 py-3 last:pr-7 text-right">
-                  <p className="text-base font-medium">{coin.volume}</p>
-                </td>
-                <td className="text-sm tabular-nums px-2 py-3 last:pr-7 text-right">
-                  <p className="text-base font-medium text-red-500">
-                    {coin.change}
-                  </p>
-                </td>
-                <td className="text-sm tabular-nums px-2 py-3 last:pr-7 text-right flex justify-end">
-                  <div className="flex justify-end w-[100px] h-[20px]">
-                    <ResponsiveContainer width="100%" height="100%">
-                      <LineChart data={coin.data}>
-                        <Line
-                          type="monotone"
-                          dataKey="value"
-                          stroke={coin.chartColor}
-                          strokeWidth={2}
-                          dot={false}
-                        />
-                      </LineChart>
-                    </ResponsiveContainer>
+                </th>
+                <th className="border-b border-[#202127] w-[17%] px-1 py-3 text-sm font-normal text-[#9695AF]  first:pl-2 last:pr-6">
+                  <div className="flex flex-row items-center px-1 first:pl-0 cursor-pointer select-none justify-end text-right">
+                    Price
                   </div>
-                </td>
+                </th>
+                <th className="border-b border-[#202127] w-[17%] px-1 py-3 text-sm font-normal text-[#9695AF]  first:pl-2 last:pr-6">
+                  <div className="flex flex-row items-center px-1 first:pl-0 cursor-pointer select-none justify-end text-right">
+                    Open Interest
+                  </div>
+                </th>
+                <th className="border-b border-[#202127] w-[17%] px-1 py-3 text-sm font-normal text-[#9695AF]  first:pl-2 last:pr-6">
+                  <div className="flex flex-row items-center px-1 first:pl-0 cursor-pointer select-none justify-end text-right">
+                    24h Volume
+                  </div>
+                </th>
+                <th className="border-b border-[#202127] w-[17%] px-1 py-3 text-sm font-normal text-[#9695AF]  first:pl-2 last:pr-6">
+                  <div className="flex flex-row items-center px-1 first:pl-0 cursor-pointer select-none justify-end text-right">
+                    24h Change
+                  </div>
+                </th>
+                <th className="border-b border-[#202127] w-[17%] px-1 py-3 text-sm font-normal text-[#9695AF]  first:pl-2 last:pr-6">
+                  <div className="flex flex-row items-center px-1 first:pl-0 cursor-pointer select-none justify-end text-right">
+                    <ArrowDown size={18} />
+                    <span className=" ml-2">Last 7 Days</span>
+                  </div>
+                </th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody className="gap-2 divide-y divide-[#202127]">
+              {coinData.map((coin, index) => (
+                <tr className="hover:bg-[#202127] cursor-pointer" key={index}>
+                  <td className="text-sm tabular-nums px-2 py-3 last:pr-7">
+                    <div className="flex items-center">
+                      <div
+                        className="relative flex-none overflow-hidden rounded-full border border-gray-300"
+                        style={{ width: 40, height: 40 }}
+                      >
+                        <Image
+                          src={coin.logo}
+                          alt="SOL Logo"
+                          width={40}
+                          height={40}
+                          priority
+                        />
+                      </div>
+                      <div className="ml-2 flex flex-col">
+                        <span className="font-medium text-base">
+                          {coin.name}
+                        </span>
+                      </div>
+                    </div>
+                  </td>
+                  <td className="text-sm tabular-nums px-2 py-3 last:pr-7 text-right">
+                    <p className="text-base font-medium">{coin.price}</p>
+                  </td>
+                  <td className="text-sm tabular-nums px-2 py-3 last:pr-7 text-right">
+                    <p className="text-base font-medium">{coin.openInterest}</p>
+                  </td>
+                  <td className="text-sm tabular-nums px-2 py-3 last:pr-7 text-right">
+                    <p className="text-base font-medium">{coin.volume}</p>
+                  </td>
+                  <td className="text-sm tabular-nums px-2 py-3 last:pr-7 text-right">
+                    <p
+                      className={`text-base font-medium  ${coin.change >= 0 ? " text-[#00C278]" : " text-[#FD4B4E]"}`}
+                    >
+                      {coin.change}
+                    </p>
+                  </td>
+                  <td className="text-sm tabular-nums px-2 py-3 last:pr-7 text-right flex justify-end">
+                    <div className="flex justify-end w-[100px] h-[20px]">
+                      <ResponsiveContainer width="100%" height="100%">
+                        <LineChart data={coin.data}>
+                          <Line
+                            type="monotone"
+                            dataKey="value"
+                            stroke={coin.chartColor}
+                            strokeWidth={2}
+                            dot={false}
+                          />
+                        </LineChart>
+                      </ResponsiveContainer>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );
