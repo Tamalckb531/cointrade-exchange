@@ -27,7 +27,7 @@ const Header = () => {
         {/* Logo + nav */}
         <div className=" flex items-center justify-center gap-6">
           <Logo />
-          <nav className=" hidden md:block">
+          <nav className=" hidden md:block cursor-pointer">
             <ul className="flex items-center gap-7 lg:text-md md:text-sm font-bold">
               <li>
                 <p className="text-gray-400 transition hover:text-gray-400/75">
@@ -69,19 +69,19 @@ const Header = () => {
             <ul className=" hidden md:flex md:items-center md:gap-7 text-md font-bold">
               {/* Search Icon (Visible only on Tablet) */}
               <li className="lg:hidden">
-                <p className="text-gray-400 transition hover:text-gray-400/75">
+                <p className="text-gray-400 transition hover:text-gray-400/75 cursor-pointer">
                   <Search size={20} />
                 </p>
               </li>
               <li>
-                <p className="text-gray-400 transition hover:text-gray-400/75">
+                <p className="text-gray-400 transition hover:text-gray-400/75 cursor-pointer">
                   {" "}
                   <ChartPie size={20} />
                 </p>
               </li>
 
               <li>
-                <p className="text-gray-400 transition hover:text-gray-400/75">
+                <p className="text-gray-400 transition hover:text-gray-400/75 cursor-pointer">
                   {" "}
                   <Sparkle size={20} />
                 </p>
@@ -90,7 +90,7 @@ const Header = () => {
               <li>
                 <p className="text-gray-400 transition hover:text-gray-400/75">
                   {" "}
-                  <span onClick={setAccountMenu}>
+                  <span onClick={setAccountMenu} className=" cursor-pointer">
                     <ProfileImage />
                   </span>
                 </p>

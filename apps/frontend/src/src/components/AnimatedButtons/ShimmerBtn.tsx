@@ -9,7 +9,7 @@ const Shimmer = ({ text, textColor }: Button) => {
   return (
     <>
       <button
-        className={`inline-flex h-10 items-center justify-center rounded-md border border-gray-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium ${textColor} transition-colors animate-[shimmer_2s_linear_infinite]`}
+        className={`inline-flex h-10 items-center justify-center rounded-md border border-gray-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium ${textColor} transition-colors animate-[shimmer_2s_linear_infinite] cursor-pointer`}
       >
         {text}
       </button>
