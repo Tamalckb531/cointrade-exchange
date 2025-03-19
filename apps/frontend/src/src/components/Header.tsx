@@ -32,10 +32,13 @@ const Header = () => {
           <nav className=" hidden md:block cursor-pointer">
             <ul className="flex items-center gap-7 lg:text-md md:text-sm font-bold">
               <li>
-                <p className="text-gray-400 transition hover:text-gray-400/75">
+                <span
+                  className="text-gray-400 transition hover:text-gray-400/75"
+                  onClick={() => router.push("/market")}
+                >
                   {" "}
                   Market
-                </p>
+                </span>
               </li>
 
               <li>
