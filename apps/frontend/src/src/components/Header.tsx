@@ -7,10 +7,12 @@ import { CircleUser, EllipsisVertical, LogOut, Plus } from "lucide-react";
 import ProfileImage from "./HeaderComponent/ProfileImage";
 import BorderMagic from "./AnimatedButtons/BorderMagic";
 import Shimmer from "./AnimatedButtons/ShimmerBtn";
+import { useRouter } from "next/navigation";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const [accountOpen, setAccountOpen] = useState<boolean>(false);
+  const router = useRouter();
 
   const setAccountMenu = () => {
     setMenuOpen(false);
@@ -62,8 +64,12 @@ const Header = () => {
             <div className=" hidden md:flex md:gap-3 mr-5 ">
               {/* <BorderMagic text="Deposit" textColor="text-teal-400" />
               <BorderMagic text="Withdraw" textColor="text-blue-400" /> */}
-              <Shimmer text="login" textColor="text-teal-400" />
-              <Shimmer text="sign-up" textColor="text-blue-400" />
+              <span onClick={() => router.push("/login")}>
+                <Shimmer text="login" textColor="text-teal-400" />
+              </span>
+              <span onClick={() => router.push("/signup")}>
+                <Shimmer text="sign-up" textColor="text-blue-400" />
+              </span>
             </div>
 
             <ul className=" hidden md:flex md:items-center md:gap-7 text-md font-bold">
