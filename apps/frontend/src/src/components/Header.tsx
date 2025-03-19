@@ -24,7 +24,7 @@ const Header = () => {
     setMenuOpen((prev) => !prev);
   };
   return (
-    <header className="w-full px-2 md:p-0">
+    <header className="w-full px-2 md:p-0 z-[100]">
       <div className="mx-auto flex h-16  items-center justify-between gap-8 sm:px-6 lg:px-8">
         {/* Logo + nav */}
         <div className=" flex items-center justify-center gap-6">
@@ -59,7 +59,7 @@ const Header = () => {
         </div>
         {/* search  */}
         <div className=" block md:hidden lg:block">
-          <SearchBox />
+          <SearchBox pageMarket={false} />
         </div>
         {/* Actions, portfolio and others */}
         <div className="flex items-center justify-end md:justify-between">

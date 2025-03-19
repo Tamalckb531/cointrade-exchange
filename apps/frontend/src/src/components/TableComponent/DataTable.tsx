@@ -3,6 +3,11 @@ import { ArrowDown } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 import { LineChart, Line, ResponsiveContainer } from "recharts";
+import SearchBox from "../HeaderComponent/SearchBox";
+
+interface dataTable {
+  pageMarket: boolean;
+}
 
 const data = [
   { day: "Mon", value: 10 },
@@ -197,12 +202,12 @@ const coinData = [
   },
 ];
 
-const DataTable = () => {
+const DataTable = ({ pageMarket }: dataTable) => {
   return (
     <div className=" w-full max-w-[1160px] overflow-x-auto">
       <div className="flex flex-col min-w-[1160px] gap-3 rounded-xl bg-[#14151B] p-4 text-white">
         {/*//? Tab  */}
-        <div className="flex flex-row">
+        <div className="flex justify-between">
           <div className="items-center justify-center flex-row flex space-x-2">
             <div className="flex justify-center flex-col cursor-pointer rounded-lg py-1 text-sm font-medium outline-none hover:opacity-90 h-[32px] text-[#9695AF] px-3">
               Spot
@@ -217,6 +222,7 @@ const DataTable = () => {
               Favorites
             </div>
           </div>
+          <SearchBox pageMarket={pageMarket} />
         </div>
         {/* //? Table  */}
         <div className="overflow-x-auto">
