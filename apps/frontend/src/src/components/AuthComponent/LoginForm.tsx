@@ -42,12 +42,9 @@ export function LoginForm({
               <div className="grid gap-2">
                 <div className="flex items-center">
                   <Label htmlFor="password">Password</Label>
-                  <a
-                    href="#"
-                    className="ml-auto inline-block text-sm underline-offset-4 hover:underline"
-                  >
+                  <span className="ml-auto inline-block text-sm underline-offset-4 hover:underline">
                     Forgot your password?
-                  </a>
+                  </span>
                 </div>
                 <Input
                   id="password"
@@ -73,7 +70,7 @@ export function LoginForm({
               Don&apos;t have an account?{" "}
               <span
                 className="underline underline-offset-4 cursor-pointer"
-                onClick={() => router.push("signup")}
+                onClick={() => router.push("/signup")}
               >
                 Sign up
               </span>
