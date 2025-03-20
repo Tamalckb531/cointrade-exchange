@@ -42,16 +42,12 @@ const Header = () => {
               </li>
 
               <li>
-                <p className="text-gray-400 transition hover:text-gray-400/75">
+                <p
+                  className="text-gray-400 transition hover:text-gray-400/75"
+                  onClick={() => router.push("/trade")}
+                >
                   {" "}
                   Trade
-                </p>
-              </li>
-
-              <li>
-                <p className="text-gray-400 transition hover:text-gray-400/75">
-                  {" "}
-                  Lend
                 </p>
               </li>
             </ul>
