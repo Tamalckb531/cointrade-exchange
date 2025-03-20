@@ -8,7 +8,7 @@ export default function Home() {
       <HeroSection />
       <div className=" flex flex-col items-center justify-center ">
         <StatWrapper />
-        <DataTable pageMarket={false} />
+        <DataTable pageMarket={false} showSearch={false} />
       </div>
     </div>
   );

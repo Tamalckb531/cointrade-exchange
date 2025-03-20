@@ -7,6 +7,7 @@ import SearchBox from "../HeaderComponent/SearchBox";
 
 interface dataTable {
   pageMarket: boolean;
+  showSearch: boolean;
 }
 
 const data = [
@@ -202,7 +203,7 @@ const coinData = [
   },
 ];
 
-const DataTable = ({ pageMarket }: dataTable) => {
+const DataTable = ({ pageMarket, showSearch }: dataTable) => {
   return (
     <div className=" w-full max-w-[1160px] overflow-x-auto">
       <div className="flex flex-col min-w-[1160px] gap-3 rounded-xl bg-[#14151B] p-4 text-white">
@@ -222,7 +223,7 @@ const DataTable = ({ pageMarket }: dataTable) => {
               Favorites
             </div>
           </div>
-          <SearchBox pageMarket={pageMarket} />
+          {showSearch && <SearchBox pageMarket={pageMarket} />}
         </div>
         {/* //? Table  */}
         <div className="overflow-x-auto">

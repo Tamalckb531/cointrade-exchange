@@ -7,7 +7,7 @@ const MarketWrapper = () => {
   return (
     <div className=" flex flex-col items-center justify-center text-white mt-80">
       <StatWrapper />
-      <DataTable pageMarket={true} />
+      <DataTable pageMarket={true} showSearch={true} />
       <div className="my-5">
         <PaginationComp />
       </div>
