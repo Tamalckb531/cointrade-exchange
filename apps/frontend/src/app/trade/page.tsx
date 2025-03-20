@@ -10,12 +10,12 @@ const page = () => {
   return (
     <div className="text-white flex flex-col gap-2">
       {/* TradeHeader - Horizontally scrollable on smaller screens */}
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto border px-5 py-2">
         <TradeHeader />
       </div>
 
       {/* Main Trading Section */}
-      <div className="flex flex-col lg:flex-row gap-2">
+      <div className="flex flex-col lg:flex-row gap-2 px-5 py-2 border mt-2">
         {/* TradeView - Full width in Tab/Mobile */}
         <div className="w-full">
           <TradeView />
@@ -33,7 +33,7 @@ const page = () => {
       </div>
 
       {/* TradeTableBar & BalanceTable - Fixed width & Scrollable */}
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto px-5 py-52 mt-2 border">
         <div className="flex flex-col min-w-[600px] lg:min-w-[calc(100%-300px)]">
           <TradeTableBar />
           <BalanceTable />
